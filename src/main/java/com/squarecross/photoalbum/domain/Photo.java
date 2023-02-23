@@ -22,10 +22,10 @@ public class Photo {
     @Column(name = "file_name", unique = false, nullable = true)
     private String fileName;
 
-    @Column(name = "thumb_url", unique = true, nullable = true)
+    @Column(name = "thumb_url", unique = false, nullable = true)
     private String thumbUrl;
 
-    @Column(name = "original_url", unique = true, nullable = true)
+    @Column(name = "original_url", unique = false, nullable = true)
     private String originalUrl;
 
     @Column(name = "file_size", unique = false, nullable = true)
@@ -81,5 +81,13 @@ public class Photo {
 
     public void setUploadedAt(Date uploadedAt) {
         this.uploadedAt = uploadedAt;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 }

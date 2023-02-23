@@ -49,4 +49,5 @@ public class Album {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
 }
