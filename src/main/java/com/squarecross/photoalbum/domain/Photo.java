@@ -2,6 +2,8 @@ package com.squarecross.photoalbum.domain;
 
 import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.lang.Nullable;
+
 import java.util.Date;
 
 @Entity
