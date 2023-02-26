@@ -1,12 +1,17 @@
 package com.squarecross.photoalbum.domain;
 
 import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.lang.Nullable;
 
 import java.util.Date;
 
 @Entity
+@Setter
+@Getter
 @Table(name = "photo", schema = "photo_album", uniqueConstraints = @UniqueConstraint(columnNames = "photo_id"))
 public class Photo {
 
@@ -37,59 +42,4 @@ public class Photo {
     @CreationTimestamp
     private Date uploadedAt;
 
-    public Long getPhotoId() {
-        return photoId;
-    }
-
-    public void setPhotoId(Long photoId) {
-        this.photoId = photoId;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getThumbUrl() {
-        return thumbUrl;
-    }
-
-    public void setThumbUrl(String thumbUrl) {
-        this.thumbUrl = thumbUrl;
-    }
-
-    public String getOriginalUrl() {
-        return originalUrl;
-    }
-
-    public void setOriginalUrl(String originalUrl) {
-        this.originalUrl = originalUrl;
-    }
-
-    public Long getFileSize() {
-        return fileSize;
-    }
-
-    public void setFileSize(Long fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public Date getUploadedAt() {
-        return uploadedAt;
-    }
-
-    public void setUploadedAt(Date uploadedAt) {
-        this.uploadedAt = uploadedAt;
-    }
-
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
 }
