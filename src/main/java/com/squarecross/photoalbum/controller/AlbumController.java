@@ -53,4 +53,17 @@ public class AlbumController {
         return new ResponseEntity<>(albumDtos, HttpStatus.OK);
     }
 
+    @PutMapping("/{albumId}")
+    public ResponseEntity<AlbumDto> updateAlbum(@PathVariable final Long albumId,
+                                                    @RequestBody final AlbumDto albumDto) {
+        AlbumDto updateAlbumDto = albumService.changeName(albumId, albumDto);
+        return new ResponseEntity<>(updateAlbumDto, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{albumId}")
+    public ResponseEntity<Void> deleteAlbum(@PathVariable final Long albumId) throws IOException {
+        albumService.deleteAlbum(albumId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

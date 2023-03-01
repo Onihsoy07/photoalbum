@@ -34,15 +34,15 @@ class AlbumServiceTest {
     PhotoRepository photoRepository;
 
 
-//    @Test
-//    void getAlbum() {
-//        Album album = new Album();
-//        album.setAlbumName("테스트");
-//        Album saveAlbum = albumRepository.save(album);
-//
-//        AlbumDto resAlbum = albumService.getAlbum(saveAlbum.getAlbumId());
-//        assertEquals("TEST", resAlbum.getAlbumName());
-//    }
+    @Test
+    void getAlbum() {
+        Album album = new Album();
+        album.setAlbumName("테스트");
+        Album saveAlbum = albumRepository.save(album);
+
+        AlbumDto resAlbum = albumService.getAlbum(saveAlbum.getAlbumId());
+        assertEquals("테스트", resAlbum.getAlbumName());
+    }
 
 //    @Test
 //    void getAlbum() {
@@ -54,44 +54,44 @@ class AlbumServiceTest {
 //        assertEquals("테스트", resAlbum.getAlbumName());
 //    }
 
-//    @Test
-//    void testPhotoCount() {
-//        Album album = new Album();
-//        album.setAlbumName("테스트");
-//        Album saveAlbum = albumRepository.save(album);
-//
-//        Photo photo1 = new Photo();
-//        photo1.setFileName("사진1");
-//        photo1.setAlbum(saveAlbum);
-//        photoRepository.save(photo1);
-//
-//        Photo photo2 = new Photo();
-//        photo2.setFileName("사진2");
-//        photo2.setAlbum(saveAlbum);
-//        Photo savePhoto = photoRepository.save(photo2);
-//
-//        AlbumDto albumDto = albumService.getAlbum(saveAlbum.getAlbumId());
-//        assertEquals(2, albumDto.getCount());
-//
-//    }
+    @Test
+    void testPhotoCount() {
+        Album album = new Album();
+        album.setAlbumName("테스트");
+        Album saveAlbum = albumRepository.save(album);
 
-//    @Test
-//    void testAlbumCreate() throws IOException {
-//        AlbumDto albumDto = new AlbumDto();
-//        albumDto.setAlbumName("테스트 앨범");
-//        AlbumDto savedAlbumDto = albumService.createAlbum(albumDto);
-//        File originalFile = new File(String.format(Constants.PATH_PREFIX + "/photos/original/" + savedAlbumDto.getAlbumId()));
-//        File thumbFile = new File(String.format(Constants.PATH_PREFIX + "/photos/thumb/" + savedAlbumDto.getAlbumId()));
-//
-//        assertThat(originalFile).exists();
-//        assertThat(thumbFile).exists();
-//
-//        albumService.deletAlbum(savedAlbumDto);
-//
-//        assertTrue(!(originalFile.isDirectory()));
-//        assertTrue(!(thumbFile.isDirectory()));
-//
-//    }
+        Photo photo1 = new Photo();
+        photo1.setFileName("사진1");
+        photo1.setAlbum(saveAlbum);
+        photoRepository.save(photo1);
+
+        Photo photo2 = new Photo();
+        photo2.setFileName("사진2");
+        photo2.setAlbum(saveAlbum);
+        Photo savePhoto = photoRepository.save(photo2);
+
+        AlbumDto albumDto = albumService.getAlbum(saveAlbum.getAlbumId());
+        assertEquals(2, albumDto.getCount());
+
+    }
+
+    @Test
+    void testAlbumCreate() throws IOException {
+        AlbumDto albumDto = new AlbumDto();
+        albumDto.setAlbumName("테스트 앨범");
+        AlbumDto savedAlbumDto = albumService.createAlbum(albumDto);
+        File originalFile = new File(String.format(Constants.PATH_PREFIX + "/photos/original/" + savedAlbumDto.getAlbumId()));
+        File thumbFile = new File(String.format(Constants.PATH_PREFIX + "/photos/thumb/" + savedAlbumDto.getAlbumId()));
+
+        assertThat(originalFile).exists();
+        assertThat(thumbFile).exists();
+
+        albumService.deletAlbum(savedAlbumDto);
+
+        assertTrue(!(originalFile.isDirectory()));
+        assertTrue(!(thumbFile.isDirectory()));
+
+    }
 
     @Test
     void testAlbumRepository() throws InterruptedException {
@@ -113,6 +113,23 @@ class AlbumServiceTest {
         assertEquals("aaab", resDate.get(0).getAlbumName());
         assertEquals("aaaa", resDate.get(1).getAlbumName());
         assertEquals(2, resDate.size());
+
+    }
+
+    @Test
+    void testChangeAlbumName() throws IOException {
+        AlbumDto albumDto = new AlbumDto();
+        albumDto.setAlbumName("변경 전");
+        AlbumDto res = albumService.createAlbum(albumDto);
+
+        Long albumId = res.getAlbumId();
+        AlbumDto updateDto = new AlbumDto();
+        updateDto.setAlbumName("변경 후");
+        albumService.changeName(albumId, updateDto);
+
+        AlbumDto updatedDto = albumService.getAlbum(albumId);
+
+        assertEquals("변경 후", updatedDto.getAlbumName());
 
     }
 

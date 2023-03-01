@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.nio.file.*;
 import java.util.stream.Collectors;
@@ -105,6 +106,26 @@ public class AlbumService {
             albumDto.setThumbUrls(top4.stream().map(Photo::getThumbUrl).map(c -> Constants.PATH_PREFIX + c).collect(Collectors.toList()));
         }
         return albumDtos;
+    }
+
+    public AlbumDto changeName(Long albumId, AlbumDto albumDto) {
+        Optional<Album> album = albumRepository.findById(albumId);
+        if (album.isEmpty()) {
+            throw new NoSuchElementException(String.format("Album ID '%d'가 존재하지 않습니다.", album));
+        }
+
+        Album updateAlbum = album.get();
+        updateAlbum.setAlbumName(albumDto.getAlbumName());
+        Album savedAlbum = this.albumRepository.save(updateAlbum);
+        return AlbumMapper.convertToDto(savedAlbum);
+    }
+
+    public void deleteAlbum(Long albumId) throws IOException {
+        Optional<Album> album = albumRepository.findById(albumId);
+        if(album.isEmpty()) { throw new EntityNotFoundException(String.format("Album %d를 찾을 수 없습니다.", albumId)); }
+
+        this.deleteAlbumDirectories(album.get());
+        this.albumRepository.deleteById(albumId);
     }
 
 }
