@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
@@ -131,6 +132,22 @@ class AlbumServiceTest {
 
         assertEquals("변경 후", updatedDto.getAlbumName());
 
+    }
+
+    @Test
+    void testDeleteAlbum() throws IOException {
+        AlbumDto albumDto = new AlbumDto();
+        albumDto.setAlbumName("test");
+        AlbumDto res = albumService.createAlbum(albumDto);
+
+        assertEquals("test", res.getAlbumName());
+
+        Long albumId = res.getAlbumId();
+        albumService.deleteAlbum(res.getAlbumId());
+
+        Optional<Album> resAlbum = albumRepository.findById(albumId);
+
+        assertTrue(resAlbum.isEmpty());
     }
 
 
