@@ -5,7 +5,9 @@ import com.squarecross.photoalbum.dto.PhotoDto;
 import com.squarecross.photoalbum.repository.AlbumRepository;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class PhotoMapper {
 
@@ -32,6 +34,10 @@ public class PhotoMapper {
 //        photo.setAlbum();
         return photo;
 
+    }
+
+    public static List<PhotoDto> convertToDtoList(List<Photo> photos) {
+        return photos.stream().map(PhotoMapper::convertToDto).collect(Collectors.toList());
     }
 
 }

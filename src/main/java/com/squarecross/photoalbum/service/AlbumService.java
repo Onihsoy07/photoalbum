@@ -1,6 +1,7 @@
 package com.squarecross.photoalbum.service;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.squarecross.photoalbum.domain.*;
@@ -70,8 +71,8 @@ public class AlbumService {
         Path thumbPath = Paths.get(Constants.PATH_PREFIX + "/photos/thumb/" + album.getAlbumId());
         Boolean isFile = Files.isDirectory(originalPath) && Files.isDirectory(thumbPath);
         if(isFile) {
-            Files.delete(Paths.get(Constants.PATH_PREFIX + "/photos/original/" + album.getAlbumId()));
-            Files.delete(Paths.get(Constants.PATH_PREFIX + "/photos/thumb/" + album.getAlbumId()));
+            FileUtils.cleanDirectory(new File(Constants.PATH_PREFIX + "/photos/original/" + album.getAlbumId()));
+            FileUtils.cleanDirectory(new File(Constants.PATH_PREFIX + "/photos/thumb/" + album.getAlbumId()));
             System.out.println("삭제 되었습니다.");
         } else {
             System.out.printf("%s\n%s  의 폴더가 존재하지 않습니다.\n", originalPath.toString(), thumbPath.toString());
@@ -81,21 +82,13 @@ public class AlbumService {
     public List<AlbumDto> getAlbumList(String keyword, String sort, String orderBy) {
         List<Album> albums;
         if("byName".equals(sort)) {
-            if("desc".equals(orderBy)) {
-                albums = albumRepository.findByAlbumNameContainingOrderByAlbumNameDesc(keyword);
-            } else if("asc".equals(orderBy)) {
-                albums = albumRepository.findByAlbumNameContainingOrderByAlbumNameAsc(keyword);
-            } else {
-                throw new IllegalArgumentException("알 수 없는 정렬 기준입니다.");
-            }
+            if("desc".equals(orderBy)) { albums = albumRepository.findByAlbumNameContainingOrderByAlbumNameDesc(keyword); }
+            else if("asc".equals(orderBy)) { albums = albumRepository.findByAlbumNameContainingOrderByAlbumNameAsc(keyword); }
+            else { throw new IllegalArgumentException("알 수 없는 정렬 기준입니다."); }
         } else if("byDate".equals(sort)) {
-            if("desc".equals(orderBy)) {
-                albums = albumRepository.findByAlbumNameContainingOrderByAlbumNameDesc(keyword);
-            } else if("asc".equals(orderBy)) {
-                albums = albumRepository.findByAlbumNameContainingOrderByAlbumNameAsc(keyword);
-            } else {
-                throw new IllegalArgumentException("알 수 없는 정렬 기준입니다.");
-            }
+            if("desc".equals(orderBy)) { albums = albumRepository.findByAlbumNameContainingOrderByCreatedAtDesc(keyword); }
+            else if("asc".equals(orderBy)) { albums = albumRepository.findByAlbumNameContainingOrderByCreatedAtAsc(keyword); }
+            else { throw new IllegalArgumentException("알 수 없는 정렬 기준입니다."); }
         } else {
             throw new IllegalArgumentException("알 수 없는 정렬 기준입니다.");
         }

@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="65854ea8-f506-49b0-955a-5a9c4a27b1a7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/domain/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/domain/Photo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/squarecross/photoalbum/service/AlbumServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/squarecross/photoalbum/service/AlbumServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/squarecross/photoalbum/service/PhotoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/squarecross/photoalbum/service/PhotoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/controller/PhotoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/mapper/PhotoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/mapper/PhotoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/repository/PhotoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/repository/PhotoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/AlbumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/PhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +69,7 @@
       <recent name="com.squarecross.photoalbum.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PhotoServiceTest">
+  <component name="RunManager" selected="Application.PhotoalbumApplication">
     <configuration name="PhotoalbumApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.squarecross.photoalbum.PhotoalbumApplication" />
       <module name="photoalbum.main" />
@@ -142,9 +147,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PhotoalbumApplication" />
         <item itemvalue="JUnit.PhotoServiceTest" />
         <item itemvalue="JUnit.AlbumServiceTest" />
-        <item itemvalue="Application.PhotoalbumApplication" />
         <item itemvalue="JUnit.AlbumServiceTest.getAlbum" />
         <item itemvalue="JUnit.AlbumServiceTest.testAlbumRepository" />
       </list>
