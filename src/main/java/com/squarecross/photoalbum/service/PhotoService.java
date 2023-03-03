@@ -1,5 +1,6 @@
 package com.squarecross.photoalbum.service;
 
+import org.apache.tika.Tika;
 import org.imgscalr.Scalr;
 import org.springframework.util.StringUtils;
 import com.squarecross.photoalbum.dto.*;
@@ -48,6 +49,8 @@ public class PhotoService {
     public PhotoDto savePhoto(MultipartFile file, Long albumId) throws IOException {
         Optional<Album> res = albumRepository.findById(albumId);
         if(res.isEmpty())   { throw new EntityNotFoundException("앨범이 존재하지 않습니다."); }
+
+        if(!(checkImageMimeType(file))) { throw new IllegalArgumentException(String.format("%s 파일은 이미지 파일이 아닙니다.", file.getOriginalFilename())); };
 
         String fileName = file.getOriginalFilename();
         int fileSize = (int)file.getSize();
@@ -98,5 +101,13 @@ public class PhotoService {
             throw new RemoteException("Could not store the file. Error: " + e.getMessage());
         }
     }
+
+    public Boolean checkImageMimeType(MultipartFile file) throws IOException {
+        Tika tika = new Tika();
+        String mimeType = tika.detect(file.getInputStream());
+        Boolean check = mimeType.startsWith("image");
+        return check ? true : false;
+    }
+
 
 }
