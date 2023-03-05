@@ -6,6 +6,40 @@
   <component name="ChangeListManager">
     <list default="true" id="65854ea8-f506-49b0-955a-5a9c4a27b1a7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/Arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/Baylor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/Breslin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/Charleston.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/GUxQjWqDqXeSOU24Rf2PZ (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/GUxQjWqDqXeSOU24Rf2PZ (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/GUxQjWqDqXeSOU24Rf2PZ (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/GUxQjWqDqXeSOU24Rf2PZ (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/1/GUxQjWqDqXeSOU24Rf2PZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/2/Everest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/2/Farren.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/2/Gianni.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/2/Jess.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/4/Mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/4/Memphis.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/4/Parker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/original/4/Pat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/Arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/Baylor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/Breslin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/Charleston.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/GUxQjWqDqXeSOU24Rf2PZ (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/GUxQjWqDqXeSOU24Rf2PZ (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/GUxQjWqDqXeSOU24Rf2PZ (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/GUxQjWqDqXeSOU24Rf2PZ (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/1/GUxQjWqDqXeSOU24Rf2PZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/2/Everest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/2/Farren.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/2/Gianni.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/2/Jess.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/4/Mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/4/Memphis.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/4/Parker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/thumb/4/Pat.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/controller/PhotoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squarecross/photoalbum/service/PhotoService.java" afterDir="false" />
     </list>

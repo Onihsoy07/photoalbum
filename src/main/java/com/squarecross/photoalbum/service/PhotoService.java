@@ -142,4 +142,17 @@ public class PhotoService {
         photoRepository.deleteById(photoId);
     }
 
+    public PhotoDto moveAlbum(Long albumId, Long photoId) {
+        Optional<Album> album = albumRepository.findById(albumId);
+        Optional<Photo> photo = photoRepository.findById(photoId);
+        if(album.isEmpty())  { throw new IllegalArgumentException(String.format("앨범 ID %d로 찾을 수 없습니다.", albumId)); }
+        if(photo.isEmpty())  { throw new IllegalArgumentException(String.format("사진 ID %d로 찾을 수 없습니다.", photoId)); }
+
+        Photo resPhoto = photo.get();
+        resPhoto.setAlbum(album.get());
+        photoRepository.save(resPhoto);
+
+        return PhotoMapper.convertToDto(resPhoto);
+    }
+
 }

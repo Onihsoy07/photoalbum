@@ -93,5 +93,15 @@ public class PhotoController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PutMapping("/move")
+    public ResponseEntity<List<PhotoDto>> photosMoveAlbum(@RequestParam final Long albumId,
+                                                          @RequestParam final Long[] photoIds) {
+        List<PhotoDto> photoDtos = new ArrayList<>();
+        for(Long photoId : photoIds) {
+            photoDtos.add(photoService.moveAlbum(albumId, photoId));
+        }
+        return new ResponseEntity<>(photoDtos, HttpStatus.OK);
+    }
+
 
 }
