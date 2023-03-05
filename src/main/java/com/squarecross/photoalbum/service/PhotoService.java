@@ -109,5 +109,12 @@ public class PhotoService {
         return check ? true : false;
     }
 
+    public File getImageFile(Long photoId) {
+        Optional<Photo> res = photoRepository.findById(photoId);
+        if(res.isEmpty())   { throw new EntityNotFoundException(String.format("사진 ID %d를 찾을 수 없습니다.", photoId)); }
+
+        return new File(Constants.PATH_PREFIX + res.get().getOriginalUrl());
+    }
+
 
 }
