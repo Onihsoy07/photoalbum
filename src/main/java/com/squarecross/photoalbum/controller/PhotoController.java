@@ -77,5 +77,13 @@ public class PhotoController {
         }
     }
 
+    @GetMapping("/list")
+    public ResponseEntity<List<PhotoDto>> getPhotoList(@PathVariable final Long albumId,
+                                                    @RequestParam(required = false, defaultValue = "byDate") final String sort,
+                                                    @RequestParam(required = false, defaultValue = "asc") final String orderBy) {
+        List<PhotoDto> res = photoService.getPhotoList(albumId, sort, orderBy);
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
 
 }

@@ -16,12 +16,10 @@ import javax.persistence.EntityNotFoundException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -114,6 +112,27 @@ public class PhotoService {
         if(res.isEmpty())   { throw new EntityNotFoundException(String.format("사진 ID %d를 찾을 수 없습니다.", photoId)); }
 
         return new File(Constants.PATH_PREFIX + res.get().getOriginalUrl());
+    }
+
+    public List<PhotoDto> getPhotoList(Long albumId, String sort, String orderBy) {
+        Optional<Album> album = albumRepository.findById(albumId);
+        if(album.isEmpty()) { throw new EntityNotFoundException(String.format("앨범 ID %d로 찾을 수 없습니다.", album)); }
+
+        List<Photo> photos;
+
+        if("byDate".equals(sort)) {
+            if("asc".equals(orderBy))   { photos = photoRepository.findByAlbum_AlbumIdOrderByFileNameAsc(albumId); }
+            else if("desc".equals(orderBy)) { photos = photoRepository.findByAlbum_AlbumIdOrderByFileNameDesc(albumId); }
+            else { throw new IllegalArgumentException("정렬기준을 찾을 수 없습니다."); }
+        }
+        else if("byName".equals(sort)) {
+            if("asc".equals(orderBy))   { photos = photoRepository.findByAlbum_AlbumIdOrderByFileNameAsc(albumId); }
+            else if("desc".equals(orderBy)) { photos = photoRepository.findByAlbum_AlbumIdOrderByFileNameDesc(albumId); }
+            else { throw new IllegalArgumentException("정렬기준을 찾을 수 없습니다."); }
+        }
+        else { throw new IllegalArgumentException("정렬기준을 찾을 수 없습니다."); }
+
+        return PhotoMapper.convertToDtoList(photos);
     }
 
 
