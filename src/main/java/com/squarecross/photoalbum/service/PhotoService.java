@@ -135,5 +135,11 @@ public class PhotoService {
         return PhotoMapper.convertToDtoList(photos);
     }
 
+    public void deletPhoto(Long photoId) {
+        Optional<Photo> res = this.photoRepository.findById(photoId);
+        if(res.isEmpty())   { throw new EntityNotFoundException(String.format("사진 ID %d를 찾을 수 없습니다.", photoId)); }
+
+        photoRepository.deleteById(photoId);
+    }
 
 }

@@ -85,5 +85,13 @@ public class PhotoController {
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
+    @DeleteMapping("")
+    public ResponseEntity<Void> deletePhoto(@RequestParam final Long[] photoIds) {
+        for(Long photoId : photoIds) {
+            photoService.deletPhoto(photoId);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 
 }
